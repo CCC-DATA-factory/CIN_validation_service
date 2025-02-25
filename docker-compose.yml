@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   cin_validator:
-    image: faroukdaboussi0/CINval:latest
+    image: faroukdaboussi0/evaluating_cin_service:latest
     container_name: cin_validator
     environment:
       - TEMPLATE_FRONT_PATH=templates/front.jpeg

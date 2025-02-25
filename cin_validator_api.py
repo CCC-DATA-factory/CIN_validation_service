@@ -6,9 +6,9 @@ from fastapi.responses import JSONResponse, StreamingResponse
 import psutil
 import uvicorn
 import time
-from dotenv import load_dotenv
+
 import os
-load_dotenv()
+
 
 # --- Our CINValidator Class ---
 class CINValidator:
@@ -127,8 +127,8 @@ class CINValidator:
 # --- FastAPI App ---
 app = FastAPI()
 
-TEMPLATE_FRONT_PATH = os.getenv("TEMPLATE_FRONT_PATH")
-TEMPLATE_BACK_PATH = os.getenv("TEMPLATE_BACK_PATH")
+TEMPLATE_FRONT_PATH = os.getenv("TEMPLATE_FRONT_PATH","templates/front.jpeg")
+TEMPLATE_BACK_PATH = os.getenv("TEMPLATE_BACK_PATH",'templates/back.jpeg')
 MIN_GOOD_MATCHES = int(os.getenv("MIN_GOOD_MATCHES", 120))
 INLIER_THRESHOLD_FRONT = int(os.getenv("INLIER_THRESHOLD_FRONT", 120))
 INLIER_THRESHOLD_BACK = int(os.getenv("INLIER_THRESHOLD_BACK", 50))
