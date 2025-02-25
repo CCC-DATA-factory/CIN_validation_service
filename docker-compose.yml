@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  cin_validator:
+    image: faroukdaboussi0/CINval:latest
+    container_name: cin_validator
+    environment:
+      - TEMPLATE_FRONT_PATH=templates/front.jpeg
+      - TEMPLATE_BACK_PATH=templates/back.jpeg
+      - MIN_GOOD_MATCHES=120
+      - INLIER_THRESHOLD_FRONT=120
+      - INLIER_THRESHOLD_BACK=50
+      - RATIO_THRESHOLD=0.7
+    ports:
+      - "8082:8082"
+    volumes:
+      - ./templates:/app/templates
+    networks:
+      - cin_net
+
+networks:
+  cin_net:
+    driver: bridge
